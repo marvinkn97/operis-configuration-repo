@@ -1,16 +1,4 @@
 spring:
-  application:
-    name: operis-notification-service
-
-  config:
-    import: optional:configserver:/
-
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: operis-configuration-server
-
   mail:
     host: localhost
     protocol: smtp
@@ -23,6 +11,12 @@ spring:
           auth: false
           starttls:
             enable: false
+            
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/operis
 
 operis:
   frontend-url: http://localhost:4200/

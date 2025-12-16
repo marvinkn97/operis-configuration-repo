@@ -1,8 +1,5 @@
 
 spring:
-  application:
-    name: operis-user-service
-
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
