@@ -8,7 +8,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -28,3 +28,9 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+keycloak:
+  server-url: http://localhost:9090
+  realm: operis
+  client-id: operis-identity-service
+  client-secret: tLWqWvt7tDUxmRoVCnwAAMNYe8SA8Pwu
