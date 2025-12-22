@@ -20,6 +20,12 @@ spring:
         jwt:
           issuer-uri: http://localhost:9090/realms/operis
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: operis
+    password: password
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.value}
