@@ -16,7 +16,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9090/realms/operis
+          issuer-uri: http://localhost:9000/realms/operis
 
 operis:
   frontend-url: http://localhost:4200/
