@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -40,3 +39,4 @@ keycloak:
   realm: operis
   client-id: operis-identity-service
   client-secret: tLWqWvt7tDUxmRoVCnwAAMNYe8SA8Pwu
+
