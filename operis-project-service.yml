@@ -19,7 +19,7 @@ spring:
           jwk-set-uri: http://localhost:9000/realms/operis/protocol/openid-connect/certs
   rabbitmq:
     host: localhost
-    port: 5672
+     port: 5672
     username: operis
     password: password
 
@@ -105,9 +105,9 @@ spring:
           jwk-set-uri: http://operis-keycloak:8080/realms/operis/protocol/openid-connect/certs
   data:
     redis:
-     host: redis
-     port: 6379
-     password: password
+      host: redis
+      port: 6379
+      password: password
 
   datasource:
     driver-class-name: org.postgresql.Driver
