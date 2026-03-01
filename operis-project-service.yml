@@ -105,9 +105,9 @@ spring:
           jwk-set-uri: http://operis-keycloak:8080/realms/operis/protocol/openid-connect/certs
   data:
     redis:
-    host: redis
-    port: 6379
-    password: password
+     host: redis
+     port: 6379
+     password: password
 
   datasource:
     driver-class-name: org.postgresql.Driver
