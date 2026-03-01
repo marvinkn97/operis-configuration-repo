@@ -41,7 +41,6 @@ management:
         include:
           - health
           - busrefresh
-          -
           - prometheus
           - metrics
   prometheus:
