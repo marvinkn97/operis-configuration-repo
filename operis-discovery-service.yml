@@ -1,6 +1,8 @@
+# Default Profile
 eureka:
   instance:
     prefer-ip-address: true
+    hostname: localhost
   client:
     fetch-registry: false
     register-with-eureka: false
@@ -11,12 +13,12 @@ spring:
   config:
     activate:
       on-profile: docker
+    import: optional:configserver:http://operis-configuration-server:8888
 
 eureka:
   instance:
-    # Use the name you defined in docker-compose
-    hostname: operis-servicediscovery 
+    hostname: operis-servicediscovery # Matches the container name/alias in docker-compose
+    prefer-ip-address: true
   client:
-    service-url:
-      # Use the container name 'operis-servicediscovery' here too
-      defaultZone: http://operis-servicediscovery:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
