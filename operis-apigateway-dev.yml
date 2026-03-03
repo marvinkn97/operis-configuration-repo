@@ -194,7 +194,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://operis-eureka-server:8761/eureka
+      defaultZone: http://operis-discovery-service:8761/eureka
 
 management:
   opentelemetry:
