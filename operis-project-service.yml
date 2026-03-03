@@ -4,6 +4,11 @@ spring:
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:54321/operis_project_db
+    data:
+    redis:
+      host: localhost
+      port: 6379
+      password: password
   jpa:
     hibernate:
       ddl-auto: update
@@ -19,7 +24,7 @@ spring:
           jwk-set-uri: http://localhost:9000/realms/operis/protocol/openid-connect/certs
   rabbitmq:
     host: localhost
-     port: 5672
+    port: 5672
     username: operis
     password: password
 
@@ -73,13 +78,7 @@ management:
     metrics:
       export:
         enabled: false
-logging:
-  file:
-    name: logs/${spring.application.name}.log
-  logback:
-    rollingpolicy:
-      max-file-size: 10MB
-      max-history: 7
+
 rabbitmq:
   exchange:
     name: project.invitation.exchange
@@ -91,12 +90,27 @@ rabbitmq:
     accept: project.invitation.accept
     reject: project.invitation.reject
 
+---
+spring:
+  config:
+    activate:
+      on-profile: default  # For local development outside Docker
+    import: optional:configserver:http://localhost:8888/
 
 ---
 spring:
   config:
     activate:
       on-profile: docker
+    import: optional:configserver:http://operis-configuration-server:8888/
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: operis-configuration-server
+  devtools:
+    restart:
+      enabled: false  
   security:
     oauth2:
       resourceserver:
