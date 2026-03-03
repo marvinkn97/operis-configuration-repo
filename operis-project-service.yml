@@ -94,20 +94,12 @@ rabbitmq:
 spring:
   config:
     activate:
-      on-profile: default  # For local development outside Docker
-    import: optional:configserver:http://localhost:8888/
-
----
-spring:
-  config:
-    activate:
       on-profile: docker
     import: optional:configserver:http://operis-configuration-server:8888/
   cloud:
     config:
       discovery:
-        enabled: true
-        service-id: operis-configuration-server
+        enabled: false
   devtools:
     restart:
       enabled: false  
@@ -138,7 +130,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://operis-servicediscovery:8761/eureka
+      defaultZone: http://operis-discovery-service:8761/eureka
 
 management:
   opentelemetry:
