@@ -23,15 +23,53 @@ spring:
     username: operis
     password: password
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://operis-discovery-service:8761/eureka
-
 management:
+  server:
+    port: 9095
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - busrefresh
+          - prometheus
+          - metrics
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  tracing:
+    export:
+      otlp:
+        enabled: true
+    sampling:
+      probability: 1.0
   opentelemetry:
     tracing:
       export:
         otlp:
           endpoint: http://tempo:4318/v1/traces
           transport: http
+  otlp:
+    metrics:
+      export:
+        enabled: false
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://operis-discovery-service:8761/eureka
