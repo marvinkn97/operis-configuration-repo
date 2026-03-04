@@ -4,16 +4,19 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9000/realms/operis
+
   rabbitmq:
     host: localhost
     port: 5672
     username: operis
     password: password
+
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:54324/operis_task_db
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -72,55 +75,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-rabbitmq:
-  exchange:
-    name: task-exchange
-  queue:
-    cta-service: task.cta.queue
-  routing-key:
-    new: task.new
-    accept: task.accept
-    reject: task.reject
-    
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://operis-keycloak:8080/realms/operis
-          jwk-set-uri: http://operis-keycloak:8080/realms/operis/protocol/openid-connect/certs
-  data:
-    redis:
-      host: redis
-      port: 6379
-      password: password
-
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: password
-    url: jdbc:postgresql://postgres-operis-task:5432/operis_task_db
-
-  rabbitmq:
-    host: operis-rabbitmq
-    port: 5672
-    username: operis
-    password: password
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://operis-eureka-server:8761/eureka
-
-management:
-  opentelemetry:
-    tracing:
-      export:
-        otlp:
-          endpoint: http://tempo:4318/v1/traces
-          transport: http

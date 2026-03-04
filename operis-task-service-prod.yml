@@ -1,7 +1,4 @@
 spring:
-  devtools:
-    restart:
-      enabled: false  
   security:
     oauth2:
       resourceserver:
@@ -18,7 +15,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: password
-    url: jdbc:postgresql://postgres-operis-project:5432/operis_project_db
+    url: jdbc:postgresql://postgres-operis-task:5432/operis_task_db
 
   rabbitmq:
     host: rabbitmq
