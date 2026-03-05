@@ -1,4 +1,5 @@
 spring:
+  cloud:
     gateway:
       server:
         webflux:
@@ -82,7 +83,7 @@ spring:
             
     data:
       redis:
-        host: rediss
+        host: redis
         port: 6379
         password: password
 
