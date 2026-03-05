@@ -6,7 +6,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://operis-keycloak:8080/realms/operis
+          issuer-uri: https://euc1.auth.ac/auth/realms/operis
           
   data:
     redis:
