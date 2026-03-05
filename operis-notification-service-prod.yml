@@ -1,37 +1,32 @@
 spring:
-  config:
-    import: optional:configserver:${CONFIG_SERVER_URI:http://localhost:8888}
-
+  mail:
+    host: maildev
+    protocol: smtp
+    username: ""
+    password: ""
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+            
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak:9000/realms/operis
-
+  
   rabbitmq:
     host: rabbitmq
     port: 5672
     username: operis
     password: password
 
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: password
-    url: jdbc:postgresql://postgres-operis-cta:5432/operis_cta_db
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-
-
 management:
   server:
-    port: 9094
+    port: 9093
   endpoints:
     web:
       exposure:
@@ -70,6 +65,13 @@ management:
     metrics:
       export:
         enabled: false
+
+
+operis:
+  frontend-url: http://operis-angular-ui:80/
+  notifications:
+    email:
+      from: no-reply@operis.com
 
 eureka:
   instance:
