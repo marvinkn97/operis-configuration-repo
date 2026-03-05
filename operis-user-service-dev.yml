@@ -4,6 +4,7 @@ spring:
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:54322/operis_user_db
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,11 +12,13 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9000/realms/operis
+
   rabbitmq:
     host: localhost
     port: 5672
@@ -37,3 +40,46 @@ keycloak:
   client-id: operis-identity-service
   client-secret: tLWqWvt7tDUxmRoVCnwAAMNYe8SA8Pwu
 
+
+management:
+  server:
+    port: 9092
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - busrefresh
+          - prometheus
+          - metrics
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  tracing:
+    export:
+      otlp:
+        enabled: true
+      enabled: true
+    sampling:
+      probability: 1.0
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+          transport: http
+  otlp:
+    metrics:
+      export:
+        enabled: false
