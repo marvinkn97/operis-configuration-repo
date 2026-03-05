@@ -78,8 +78,8 @@ spring:
       oauth2:
         resourceserver:
           jwt:
-            issuer-uri: http://localhost:9000/realms/operis
-            jwk-set-uri: http://keycloak:8080/realms/operis/protocol/openid-connect/certs
+            issuer-uri: http://keycloak:8080/realms/operis
+            
     data:
       redis:
         host: rediss
