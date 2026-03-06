@@ -95,7 +95,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://operis-discovery-service:8761/eureka
+      defaultZone: http://operis-discovery-service:8761/
 
 management:
   endpoints:
