@@ -11,14 +11,6 @@ spring:
         port: 6378
         password: password
 
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${random.value}
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/
 
 management:
   endpoints:
