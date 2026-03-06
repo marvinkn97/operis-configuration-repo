@@ -1,0 +1,11 @@
+spring:
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URI:http://localhost:8888}
+
+eureka:
+  instance:
+    hostname: operis-discovery-service # Matches the container name/alias in docker-compose
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
