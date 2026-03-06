@@ -39,7 +39,7 @@ keycloak:
   server-url: hhttp://localhost:9000/realms/operis
   realm: operis
   client-id: operis-identity-service
-  client-secret: O5H5P65pVsGGVy6XrdgsrUsWCn8ShcL3
+  client-secret: tLWqWvt7tDUxmRoVCnwAAMNYe8SA8Pwu
 
   
 management:
