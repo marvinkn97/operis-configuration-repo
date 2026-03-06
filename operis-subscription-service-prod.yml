@@ -10,7 +10,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://euc1.auth.ac/auth/realms/operis
+          issuer-uri: http://localhost:9000/realms/operis
+          jwk-set-uri: http://http:keycloak:8080/realms/operis/protocol/openid-connect/certs
 
   rabbitmq:
     host: localhost

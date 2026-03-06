@@ -17,7 +17,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://https://euc1.auth.ac/auth/realms/operis
+          issuer-uri: http://localhost:9000/realms/operis
+          jwk-set-uri: http://http:keycloak:8080/realms/operis/protocol/openid-connect/certs
 
   rabbitmq:
     host: rabbitmq
@@ -35,12 +36,12 @@ eureka:
       defaultZone: http://operis-discovery-service:8761/eureka
 
 keycloak:
-  server-url: https://euc1.auth.ac/auth
+  server-url: hhttp://localhost:9000/realms/operis
   realm: operis
   client-id: operis-identity-service
   client-secret: O5H5P65pVsGGVy6XrdgsrUsWCn8ShcL3
 
-
+  
 management:
   server:
     port: 9092
